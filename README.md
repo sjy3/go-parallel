@@ -44,13 +44,13 @@ func main() {
 默认情况下，整个并发处理流程会等全部的子流程执行结束退出，isTimeout 恒为 false。此外，go-parallal 还支持设置超时时间，只需要在`po.Run()`之前设置参数, 如果存在超时子任务的话，isTimeout = true
 
 ```golang
-	po.SetTimeout(5000 * time.Millisecond)
+    po.SetTimeout(5000 * time.Millisecond)
 ```
 
 您也可以通过 context 上下文信息来处理超时，context 方式的好处是可以继承父任务的超时时间。
 
 ```golang
-	ctx, cancel = context.WithTimeout(p.ctx, timeout)
+    ctx, cancel = context.WithTimeout(p.ctx, timeout)
     po.SetContext(ctx)
 ```
 
